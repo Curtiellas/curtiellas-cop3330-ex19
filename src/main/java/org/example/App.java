@@ -13,10 +13,10 @@ public class App
     {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Enter your height in inches: ");
-        double height = sc.nextDouble();
-        System.out.println("Enter your weight in pounds: ");
-        double weight = sc.nextDouble();
+        System.out.print("Enter your height in inches: ");
+        double height = numericCheck();
+        System.out.print("Enter your weight in pounds: ");
+        double weight = numericCheck();
 
         //calculate
         double BMI = (weight / (height * height)) * 703;
@@ -33,5 +33,21 @@ public class App
 
         else
             System.out.println("You are overweight. You should see your doctor.");
+    }
+
+    public static double numericCheck ()
+    {
+        Scanner sc = new Scanner((System.in));
+        double theNumber;
+
+        while (true)
+        {
+            try {
+                theNumber = Double.parseDouble(sc.next());
+                return theNumber;
+            } catch (NumberFormatException e) {
+                System.out.print("Invalid input. Try again. ");
+            }
+        }
     }
 }
